@@ -19,7 +19,11 @@ systemctl enable libvirtd
 
 #lsmod | grep kvm
 
+lspci -Dnn | grep -i NVIDIA
+
 nano /etc/default/grub
+
+GRUB_CMDLINE_LINUX="crashkernel=auto resume=/dev/mapper/vg0-lv_swap rd.lvm.lv=vg0/lv_root rd.lvm.lv=vg0/lv_swap rhgb quiet intel_iommu=on pci-stub.ids=10de:1c20,10de:10f1"
 
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
