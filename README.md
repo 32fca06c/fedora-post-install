@@ -39,3 +39,12 @@ systemctl start system76-power system76-firmware-daemon
 systemctl enable --user com.system76.FirmwareManager.Notify.timer
 system76-power graphics nvidia
 reboot
+
+dnf install vulkan-tools cmake ncurses-devel git -y
+mkdir /home/adner/Git
+cd /home/adner/Git
+git clone https://github.com/Syllo/nvtop.git
+mkdir -p nvtop/build && cd nvtop/build
+cmake .. -DNVIDIA_SUPPORT=ON -DAMDGPU_SUPPORT=ON
+make
+make install
