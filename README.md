@@ -22,3 +22,20 @@ systemctl enable libvirtd
 nano /etc/default/grub
 
 grub2-mkconfig -o /boot/grub2/grub.cfg
+
+/sbin/lspci | grep -e VGA
+dnf install kmod-nvidia xorg-x11-drv-nvidia-libs.i686 xorg-x11-drv-nvidia-cuda libva-vdpau-driver -y
+modinfo -F version nvidia
+akmods --force
+dracut --force
+systemctl enable nvidia-{suspend,resume,hibernate}
+nano /etc/default/grub
+grub2-mkconfig -o /boot/grub2/grub.cfg
+reboot
+
+dnf install system76-dkms system76-power system76-driver system76-firmware firmware-manager system76-io-dkms system76-acpi-dkms -y
+systemctl enable system76-power system76-power-wake system76-firmware-daemon
+systemctl start system76-power system76-firmware-daemon
+systemctl enable --user com.system76.FirmwareManager.Notify.timer
+system76-power graphics nvidia
+reboot
