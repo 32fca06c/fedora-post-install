@@ -12,8 +12,13 @@ reboot
 
 # https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualization/
 dnf install @virtualization -y
+
 systemctl start libvirtd
+
 systemctl enable libvirtd
+
 #lsmod | grep kvm
+
 nano /etc/default/grub
+
 grub2-mkconfig -o /boot/grub2/grub.cfg
