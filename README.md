@@ -6,6 +6,7 @@ dnf install fedora-workstation-repositories https://download1.rpmfusion.org/free
 dnf update -y
 
 dnf copr enable rmnscnce/kernel-xanmod -y
+
 dnf install kernel-xanmod-edge -y
 reboot
 
