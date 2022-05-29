@@ -6,7 +6,7 @@ dnf install fedora-workstation-repositories https://download1.rpmfusion.org/free
 
 # xanmod kernel
 dnf copr enable rmnscnce/kernel-xanmod -y
-dnf install kernel-xanmod-edge kernel-xanmod-edge-devel kernel-xanmod-edge-devel-matched kernel-xanmod-edge-headers
+dnf install kernel-xanmod-edge kernel-xanmod-edge-devel kernel-xanmod-edge-devel-matched kernel-xanmod-edge-headers -y
 reboot
 
 # nvidia
@@ -20,9 +20,9 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 reboot
 
 # virtualization
-dnf install @virtualization
+dnf install @virtualization -y
 systemctl start libvirtd
 systemctl enable libvirtd
 
 # apps
-dnf install telegram discord google-chrome-stable remmina
+dnf install telegram discord google-chrome-stable remmina -y
