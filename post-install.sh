@@ -8,3 +8,17 @@ dnf install fedora-workstation-repositories https://download1.rpmfusion.org/free
 dnf install @virtualization
 systemctl start libvirtd
 systemctl enable libvirtd
+
+# xanmod kernel
+dnf install kernel-xanmod-edge kernel-xanmod-edge-devel kernel-xanmod-edge-devel-matched kernel-xanmod-edge-headers
+reboot
+
+# nvidia
+dnf install kmod-nvidia xorg-x11-drv-nvidia-libs.i686 xorg-x11-drv-nvidia-cuda libva-vdpau-driver -y
+modinfo -F version nvidia
+akmods --force
+dracut --force
+systemctl enable nvidia-{suspend,resume,hibernate}
+nano /etc/default/grub
+grub2-mkconfig -o /boot/grub2/grub.cfg
+reboot
