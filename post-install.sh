@@ -5,8 +5,8 @@ echo max_parallel_downloads=20>>/etc/dnf/dnf.conf
 dnf install fedora-workstation-repositories https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf install dnf-automatic -y
 env EDITOR='gedit -w' sudoedit /etc/dnf/automatic.conf
-systemctl start --now dnf-automatic.timer
-systemctl enable --now dnf-automatic.timer
+systemctl start dnf-automatic.timer
+systemctl enable dnf-automatic.timer
 
 # xanmod kernel
 dnf copr enable rmnscnce/kernel-xanmod -y
