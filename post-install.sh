@@ -20,9 +20,9 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 reboot
 
 # virtualization
-dnf install @virtualization -y
+dnf install @virtualization remmina -y
 systemctl start libvirtd
 systemctl enable libvirtd
 
 # apps
-dnf install telegram discord google-chrome-stable remmina -y
+dnf install telegram discord google-chrome-stable -y
