@@ -30,7 +30,7 @@ dnf install @virtualization remmina -y
 systemctl start libvirtd
 systemctl enable libvirtd
 
-# onlyoffice repo
+# onlyoffice
 echo [onlyoffice]>/etc/yum.repos.d/onlyoffice.repo
 echo name=onlyoffice repo>>/etc/yum.repos.d/onlyoffice.repo
 echo baseurl=https://download.onlyoffice.com/repo/centos/main/noarch/>>/etc/yum.repos.d/onlyoffice.repo
