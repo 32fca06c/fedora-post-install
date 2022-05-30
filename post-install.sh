@@ -32,7 +32,7 @@ systemctl enable libvirtd
 
 # onlyoffice repo
 echo [onlyoffice]>/etc/yum.repos.d/onlyoffice.repo
-echo name=ONLYOFFICE>>/etc/yum.repos.d/onlyoffice.repo
+echo name=onlyoffice>>/etc/yum.repos.d/onlyoffice.repo
 echo baseurl=http://download.onlyoffice.com/repo/centos/main/noarch/>>/etc/yum.repos.d/onlyoffice.repo
 echo gpgcheck=0>>/etc/yum.repos.d/onlyoffice.repo
 echo enabled=1>>/etc/yum.repos.d/onlyoffice.repo
