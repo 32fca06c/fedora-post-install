@@ -29,4 +29,4 @@ systemctl start libvirtd
 systemctl enable libvirtd
 
 # apps
-dnf install telegram discord google-chrome-stable -y
+dnf install telegram discord google-chrome-stable qbittorrent -y
