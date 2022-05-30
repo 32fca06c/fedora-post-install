@@ -38,6 +38,7 @@ grub2-mkconfig > /etc/grub2-efi.cfg
 reboot
 nano /etc/default/grub
 echo options vfio-pci ids=8086:1901,10de:1c20,10de:10f1>/etc/modprobe.d/vfio.conf
+blacklist nouveau>>/etc/modprobe.d/vfio.conf
 dracut -f --kver $(uname -r)
 grub2-mkconfig > /etc/grub2-efi.cfg
 reboot
