@@ -41,6 +41,9 @@ echo options vfio-pci ids=8086:1901,10de:1c20,10de:10f1>/etc/modprobe.d/vfio.con
 dracut -f --kver $(uname -r)
 grub2-mkconfig > /etc/grub2-efi.cfg
 reboot
+lspci -nnk -d 8086:1901
+lspci -nnk -d 10de:1c20
+lspci -nnk -d 10de:10f1
 
 # onlyoffice
 echo [onlyoffice]>/etc/yum.repos.d/onlyoffice.repo
