@@ -29,6 +29,15 @@ reboot
 dnf install @virtualization remmina -y
 systemctl start libvirtd
 systemctl enable libvirtd
+echo "vfio" > /etc/modules-load.d/vfio.conf
+echo "vfio-pci" > /etc/modules-load.d/vfio-pci.conf
+echo "vfio_iommu_type1" > /etc/modules-load.d/vfio_iommu_type1.conf
+echo "vfio_virqfd" > /etc/modules-load.d/vfio_virqfd.conf
+dracut -f --kver $(uname -r)
+grub2-mkconfig > /etc/grub2-efi.cfg
+reboot
+nano /etc/default/grub
+echo options vfio-pci ids=8086:1901,10de:1c20,10de:10f1>/etc/modprobe.d/vfio.conf
 
 # onlyoffice
 echo [onlyoffice]>/etc/yum.repos.d/onlyoffice.repo
