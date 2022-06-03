@@ -1,0 +1,1 @@
+dnf install git python2 iasl nasm subversion perl-libwww-perl vim dos2unix gcc -y
