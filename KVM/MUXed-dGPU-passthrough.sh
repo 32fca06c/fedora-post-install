@@ -9,6 +9,7 @@ lspci -nnk -s 1:
 
 dnf install git python2 iasl nasm subversion perl-libwww-perl vim dos2unix gcc gcc-c++ patch libuuid-devel -y
 cd /var/lib/libvirt/
+cp /home/adner/kvm/SSDT1.dat SSDT1.dat
 git clone --recurse-submodules https://github.com/tianocore/edk2.git
 cd edk2/OvmfPkg/AcpiPlatformDxe
 cp /home/adner/kvm/vbios.rom vbios.rom
