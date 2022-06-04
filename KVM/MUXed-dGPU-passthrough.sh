@@ -13,4 +13,6 @@ reboot
 
 lspci -nnk -s 1:
 
-dnf install git python2 iasl nasm subversion perl-libwww-perl vim dos2unix unix2dos gcc -y
+dnf install git python2 iasl nasm subversion perl-libwww-perl vim dos2unix gcc gcc-c++ patch libuuid-devel -y
+
+git clone https://github.com/tianocore/edk2.git
