@@ -11,6 +11,7 @@ dnf install git python2 iasl nasm subversion perl-libwww-perl vim dos2unix gcc g
 cd /var/lib/libvirt/
 git clone --recurse-submodules https://github.com/tianocore/edk2.git
 cd edk2/OvmfPkg/AcpiPlatformDxe
+cp /home/adner/kvm/vbios.rom vbios.rom
 xxd -i vbios.rom vrom.h
 nano vrom.h
 wget https://github.com/jscinoz/optimus-vfio-docs/files/1842788/ssdt.txt -O ssdt.asl
