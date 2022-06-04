@@ -25,5 +25,6 @@ patch -p1 < nvidia-hack-2.diff
 unix2dos OvmfPkg/AcpiPlatformDxe/QemuFwCfgAcpi.c
 make -C BaseTools
 . ./edksetup.sh BaseTools
+nano Conf/target.txt
 build
 cp Build/OvmfX64/DEBUG_GCC5/FV/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Win10_VARS.fd
