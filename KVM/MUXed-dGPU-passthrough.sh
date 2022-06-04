@@ -10,3 +10,20 @@ lspci -nnk -s 1:
 dnf install git python2 iasl nasm subversion perl-libwww-perl vim dos2unix gcc gcc-c++ patch libuuid-devel -y
 cd /var/lib/libvirt/
 git clone --recurse-submodules https://github.com/tianocore/edk2.git
+cd edk2/OvmfPkg/AcpiPlatformDxe
+xxd -i vbios.rom vrom.h
+nano vrom.h
+wget https://github.com/jscinoz/optimus-vfio-docs/files/1842788/ssdt.txt -O ssdt.asl
+nano ssdt.asl
+iasl -f ssdt.asl
+xxd -c1 Ssdt.aml | tail -n +37 | cut -f2 -d' ' | paste -sd' ' | sed 's/ //g' | xxd -r -p > vrom_table.aml
+xxd -i vrom_table.aml | sed 's/vrom_table_aml/vrom_table/g' > vrom_table.h
+cd ../..
+wget https://gist.github.com/unilock/1bdaefb18d0fb66f2c8e219cbb64759d/raw/3498a092ce37a52c456811c4351390e459669bc1/nvidia-hack-2.diff
+dos2unix OvmfPkg/AcpiPlatformDxe/QemuFwCfgAcpi.c
+patch -p1 < nvidia-hack-2.diff
+unix2dos OvmfPkg/AcpiPlatformDxe/QemuFwCfgAcpi.c
+make -C BaseTools
+. ./edksetup.sh BaseTools
+build
+cp Build/OvmfX64/DEBUG_GCC5/FV/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/Win10_VARS.fd
