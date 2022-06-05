@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo usermod -a -G libvirt $(whoami)
 nano /etc/default/grub
 intel_iommu=on iommu=pt rd.driver.pre=vfio_pci vfio-pci.ids=10de:1c20,10de:10f1
 grub2-mkconfig -o /boot/grub2/grub.cfg
