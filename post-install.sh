@@ -29,6 +29,7 @@ reboot
 dnf install @virtualization remmina -y
 systemctl start libvirtd
 systemctl enable libvirtd
+sudo usermod -a -G libvirt $(whoami)
 
 # onlyoffice
 echo [onlyoffice]>/etc/yum.repos.d/onlyoffice.repo
