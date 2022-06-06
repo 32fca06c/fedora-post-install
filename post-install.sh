@@ -20,6 +20,7 @@ systemctl enable dnf-automatic.timer
 dnf copr enable rmnscnce/kernel-xanmod -y
 dnf install kernel-xanmod-edge kernel-xanmod-edge-devel kernel-xanmod-edge-devel-matched kernel-xanmod-edge-headers -y
 reboot
+dnf remove kernel kernel-core kernel-modules kernel-modules-extra -y
 
 # Nvidia
 dnf install kmod-nvidia xorg-x11-drv-nvidia-libs.i686 xorg-x11-drv-nvidia-cuda libva-vdpau-driver -y
