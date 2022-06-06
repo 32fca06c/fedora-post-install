@@ -40,7 +40,7 @@ echo enabled=1>>/etc/yum.repos.d/onlyoffice.repo
 dnf install onlyoffice-desktopeditors -y
 
 # Apps
-dnf install telegram discord google-chrome-stable qbittorrent ark -y
+dnf install telegram discord google-chrome-stable qbittorrent ark vlc -y
 
 # Update
 dnf update -y
