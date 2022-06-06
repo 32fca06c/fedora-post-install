@@ -3,6 +3,12 @@
 echo fastestmirror=True>>/etc/dnf/dnf.conf
 echo max_parallel_downloads=20>>/etc/dnf/dnf.conf
 dnf install fedora-workstation-repositories https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+# onlyoffice
+echo [onlyoffice]>/etc/yum.repos.d/onlyoffice.repo
+echo name=onlyoffice repo>>/etc/yum.repos.d/onlyoffice.repo
+echo baseurl=https://download.onlyoffice.com/repo/centos/main/noarch/>>/etc/yum.repos.d/onlyoffice.repo
+echo gpgcheck=0>>/etc/yum.repos.d/onlyoffice.repo
+echo enabled=1>>/etc/yum.repos.d/onlyoffice.repo
 
 # dnf-automatic
 dnf install dnf-automatic -y
@@ -31,16 +37,8 @@ systemctl start libvirtd
 systemctl enable libvirtd
 sudo usermod -a -G libvirt $(whoami)
 
-# onlyoffice
-echo [onlyoffice]>/etc/yum.repos.d/onlyoffice.repo
-echo name=onlyoffice repo>>/etc/yum.repos.d/onlyoffice.repo
-echo baseurl=https://download.onlyoffice.com/repo/centos/main/noarch/>>/etc/yum.repos.d/onlyoffice.repo
-echo gpgcheck=0>>/etc/yum.repos.d/onlyoffice.repo
-echo enabled=1>>/etc/yum.repos.d/onlyoffice.repo
-dnf install onlyoffice-desktopeditors -y
-
 # Apps
-dnf install telegram discord google-chrome-stable qbittorrent ark vlc -y
+dnf install telegram discord google-chrome-stable qbittorrent ark vlc onlyoffice-desktopeditors -y
 
 # Update
 dnf update -y
