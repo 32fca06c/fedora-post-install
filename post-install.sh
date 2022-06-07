@@ -20,10 +20,6 @@ systemctl enable dnf-automatic.timer
 
 # XANMOD kernel
 dnf install kernel-xanmod-edge kernel-xanmod-edge-devel kernel-xanmod-edge-devel-matched kernel-xanmod-edge-headers -y
-reboot
-dnf remove kernel kernel-core kernel-modules kernel-modules-extra -y
-
-
 
 # Virtualization
 dnf install @virtualization remmina -y
@@ -33,3 +29,7 @@ sudo usermod -a -G libvirt $(whoami)
 
 # Apps
 dnf install telegram discord google-chrome-stable qbittorrent ark vlc onlyoffice-desktopeditors -y
+
+#
+reboot
+dnf remove kernel kernel-core kernel-modules kernel-modules-extra -y
