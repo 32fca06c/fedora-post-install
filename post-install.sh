@@ -14,12 +14,6 @@ dnf config-manager --set-enabled
 # xanmod kernel
 dnf copr enable rmnscnce/kernel-xanmod -y
 
-# dnf-automatic
-dnf install dnf-automatic -y
-env EDITOR='gedit -w' sudoedit /etc/dnf/automatic.conf
-systemctl start dnf-automatic.timer
-systemctl enable dnf-automatic.timer
-
 # XANMOD kernel
 dnf install kernel-xanmod-edge kernel-xanmod-edge-devel kernel-xanmod-edge-devel-matched kernel-xanmod-edge-headers -y
 
